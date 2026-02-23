@@ -1,4 +1,10 @@
 import { ShoppingCart, Star, CheckCircle, Truck, Award, Globe, ArrowRight } from 'lucide-react';
+import TradeCategories from '../components/TradeCategories';
+import WhyChooseUs from '../components/WhyChooseUs';
+import SourcingNetwork from '../components/SourcingNetwork';
+import HowWeWork from '../components/HowWeWork';
+import TestimonialSlider from '../components/TestimonialSlider';
+import '../styles/TestimonialSlider.css';
 
 export default function Home({ onNavigate }) {
   const categories = [
@@ -72,39 +78,17 @@ export default function Home({ onNavigate }) {
         </div>
       </section>
 
-      {/* Categories */}
-      <section className="py-16 bg-white categories-section">
-        <div className="max-w-7xl mx-auto px-4 sm-px-6 lg-px-8">
-          <div className="text-center mb-12 section-header">
-            <h2 className="text-3xl font-bold text-text-dark mb-4">Product Categories</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Explore our diverse range of premium agricultural products sourced from the best farms globally
-            </p>
-          </div>
-          <div className="grid grid-cols-1 sm-grid-cols-2 lg-grid-cols-4 gap-6 categories-grid">
-            {categories.map((category, index) => (
-              <div
-                key={index}
-                className="group cursor-pointer category-card"
-                onClick={() => onNavigate('category')}
-              >
-                <div className="relative overflow-hidden rounded-xl bg-gray-100 aspect-square mb-4 category-image-container">
-                  <img
-                    src={category.image}
-                    alt={category.name}
-                    className="w-full h-full object-cover transition-transform group-hover-scale-110 category-image"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black-60 to-transparent"></div>
-                  <div className="absolute bottom-4 left-4 text-white category-overlay">
-                    <h3 className="font-semibold text-lg">{category.name}</h3>
-                    <p className="text-sm text-gray-200">{category.count}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Core Trade Categories */}
+      <TradeCategories />
+
+      {/* Why Choose Us */}
+      <WhyChooseUs />
+
+      {/* Strong Sourcing Network Across India */}
+      <SourcingNetwork />
+
+      {/* How We Work */}
+      <HowWeWork />
 
       {/* Features */}
       <section className="py-16 bg-gray-50 features-section">
@@ -122,56 +106,6 @@ export default function Home({ onNavigate }) {
                 </div>
               );
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* Featured Products */}
-      <section className="py-16 bg-white products-section">
-        <div className="max-w-7xl mx-auto px-4 sm-px-6 lg-px-8">
-          <div className="flex justify-between items-center mb-12 section-header">
-            <div>
-              <h2 className="text-3xl font-bold text-text-dark mb-2">Featured Products</h2>
-              <p className="text-gray-600">Handpicked premium quality produce</p>
-            </div>
-            <button
-              onClick={() => onNavigate('products')}
-              className="text-primary-dark-green hover-text-primary-green font-semibold flex items-center view-all-button"
-            >
-              View All Products
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </button>
-          </div>
-          <div className="grid grid-cols-1 sm-grid-cols-2 lg-grid-cols-4 gap-6 products-grid">
-            {products.map((product, index) => (
-              <div key={index} className="bg-white border border-gray-200 rounded-xl overflow-hidden hover-shadow-lg transition-shadow product-card">
-                <div className="relative">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-48 object-cover product-image"
-                  />
-                  <button className="absolute top-3 right-3 w-10 h-10 bg-white rounded-full flex items-center justify-center shadow-md hover-bg-gray-50 transition-colors cart-button">
-                    <ShoppingCart className="w-5 h-5 text-text-dark" />
-                  </button>
-                </div>
-                <div className="p-4 product-info">
-                  <h3 className="font-semibold text-text-dark mb-2">{product.name}</h3>
-                  <div className="flex items-center mb-2 rating-container">
-                    <div className="flex text-yellow-400">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className={`w-4 h-4 ${i < Math.floor(product.rating) ? 'fill-current' : ''} product-rating-star`} />
-                      ))}
-                    </div>
-                    <span className="text-sm text-gray-600 ml-2">{product.rating}</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-xl font-bold text-primary-dark-green">{product.price}</span>
-                    <span className="text-sm text-gray-500">{product.unit}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -199,22 +133,7 @@ export default function Home({ onNavigate }) {
               Trusted by importers and distributors across the globe
             </p>
           </div>
-          <div className="grid grid-cols-1 md-grid-cols-3 gap-8 testimonials-grid">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-gray-50 p-6 rounded-xl testimonial-card">
-                <div className="flex text-yellow-400 mb-4">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-current testimonial-star" />
-                  ))}
-                </div>
-                <p className="text-gray-700 mb-4 italic">"{testimonial.text}"</p>
-                <div>
-                  <div className="font-semibold text-text-dark">{testimonial.name}</div>
-                  <div className="text-sm text-gray-600">{testimonial.company}</div>
-                </div>
-              </div>
-            ))}
-          </div>
+          <TestimonialSlider testimonials={testimonials} />
         </div>
       </section>
     </div>

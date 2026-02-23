@@ -1,0 +1,300 @@
+/* Why Choose Us Section Styles */
+
+.why-choose-us-section {
+  padding: 6rem 2rem;
+  background: white;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3rem;
+  height: 3px;
+  background: linear-gradient(135deg, #16a34a, #22c55e);
+  border-radius: 2px;
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: #6b7280;
+  max-width: 600px;
+  margin: 1rem auto 0;
+  line-height: 1.6;
+}
+
+.why-choose-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 3rem;
+  margin-top: 3rem;
+}
+
+.why-choose-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.feature-circle {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: var(--feature-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.why-choose-card:hover .feature-circle {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Special styling for India map with transparent background */
+.why-choose-card:nth-child(2) .feature-circle {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+}
+
+.why-choose-card:nth-child(2):hover .feature-circle {
+  box-shadow: none;
+}
+
+.feature-icon {
+  width: 3rem;
+  height: 3rem;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.why-choose-card:hover .feature-icon {
+  transform: scale(1.1);
+}
+
+.globe-with-pin {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.globe-icon {
+  width: 3rem;
+  height: 3rem;
+  color: white;
+}
+
+.pin-icon {
+  position: absolute;
+  top: 15%;
+  right: 25%;
+  width: 1.5rem;
+  height: 1.5rem;
+  color: white;
+  transform: rotate(45deg);
+}
+
+.india-map {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.india-map-image {
+  width: 7rem;
+  height: 7rem;
+  object-fit: cover;
+ 
+}
+
+.multi-category-box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box-icon {
+  width: 3rem;
+  height: 3rem;
+  color: white;
+}
+
+.category-icons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.category-icon {
+  width: 1rem;
+  height: 1rem;
+  color: white;
+}
+
+.gear-icon {
+  width: 1rem;
+  height: 1rem;
+  color: white;
+}
+
+.bolt-icon {
+  width: 1rem;
+  height: 1rem;
+  color: white;
+}
+
+.dual-icons {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+}
+
+.primary-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: white;
+}
+
+.secondary-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  color: white;
+}
+
+.distribution-arrows {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.distribution-arrows::before {
+  content: '↔';
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.arrow-text {
+  font-size: 0.5rem;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: 1;
+}
+
+.feature-number {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: white;
+  color: var(--feature-color);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.feature-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1f2937;
+  line-height: 1.4;
+  max-width: 150px;
+}
+
+@media (max-width: 768px) {
+  .why-choose-us-section {
+    padding: 4rem 1rem;
+  }
+  
+  .why-choose-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .feature-circle {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .feature-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+  
+  .primary-icon,
+  .secondary-icon {
+    width: 2rem;
+    height: 2rem;
+  }
+  
+  .feature-title {
+    font-size: 0.875rem;
+    max-width: 120px;
+  }
+}
