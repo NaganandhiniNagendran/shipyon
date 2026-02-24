@@ -60,14 +60,13 @@
   justify-content: center;
   text-align: center;
   padding: 50px;
-  border-radius: 50%;
+  border-radius: 12px;
   transition: all 0.3s ease;
   cursor: pointer;
   box-sizing: border-box;
 }
 
 .vision-card {
-  border: 10px solid #8b5cf6;
   background: linear-gradient(135deg, rgba(139, 92, 246, 0.05), rgba(139, 92, 246, 0.1));
   position: relative;
 }
@@ -77,7 +76,6 @@
 }
 
 .mission-card {
-  border: 10px solid #10b981;
   background: linear-gradient(135deg, rgba(16, 185, 129, 0.05), rgba(16, 185, 129, 0.1));
   position: relative;
 }
@@ -88,15 +86,16 @@
 
 .vision-card:hover, .mission-card:hover {
   transform: translateY(-10px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  scale: 1.03;
 }
 
 .vision-card:hover {
-  box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+  box-shadow: 0 25px 50px rgba(139, 92, 246, 0.3);
 }
 
 .mission-card:hover {
-  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
+  box-shadow: 0 25px 50px rgba(16, 185, 129, 0.3);
 }
 
 .vision-icon, .mission-icon {

@@ -1,42 +1,45 @@
-import { Truck, Shield, Leaf, Globe, Warehouse, Award } from 'lucide-react';
+import { Wheat, Globe, Package, BarChart3, Network } from 'lucide-react';
+
+const borderColors = [
+  'border-green-400',
+  'border-blue-400', 
+  'border-purple-400',
+  'border-orange-400',
+  'border-pink-400',
+  'border-yellow-400'
+];
 
 export default function Services() {
   const services = [
     {
+      icon: Wheat,
+      title: 'Agricultural Product Sourcing',
+      desc: 'Directly sourcing high-quality products from trusted South Indian producers.'
+    },
+    {
       icon: Globe,
-      title: 'Global Export Network',
-      desc: 'Comprehensive export solutions to 50+ countries with full compliance',
-      features: ['Customs Documentation', 'Export Licensing', 'International Shipping', 'Market Research']
+      title: 'Domestic & International Trade',
+      desc: 'Ensuring seamless product movement across Indian and global markets.'
     },
     {
-      icon: Shield,
-      title: 'Quality Assurance',
-      desc: 'Rigorous testing and certification for all agricultural products',
-      features: ['Lab Testing', 'Organic Certification', 'Quality Standards', 'Traceability']
+      icon: Package,
+      title: 'Custom Product Procurement',
+      desc: 'Identifying, verifying, and sourcing specific product needed from India.'
     },
     {
-      icon: Warehouse,
-      title: 'Cold Chain Logistics',
-      desc: 'Temperature-controlled storage and transportation for perishable goods',
-      features: ['Refrigerated Storage', 'Cold Transport', 'Humidity Control', 'Real-time Monitoring']
+      icon: BarChart3,
+      title: 'Marketing & Sales Support',
+      desc: 'Identifying, verifying, and sourcing any specific product needed from India.'
     },
     {
-      icon: Truck,
-      title: 'Supply Chain Management',
-      desc: 'End-to-end supply chain solutions from farm to delivery',
-      features: ['Inventory Management', 'Order Processing', 'Distribution Network', 'Last-mile Delivery']
+      icon: Network,
+      title: 'Import & Market Development',
+      desc: 'Introducing high-potential international products into the Indian market.'
     },
     {
-      icon: Leaf,
-      title: 'Sustainable Sourcing',
-      desc: 'Ethical and environmentally responsible sourcing practices',
-      features: ['Organic Farming', 'Fair Trade', 'Eco-friendly Packaging', 'Carbon Footprint Reduction']
-    },
-    {
-      icon: Award,
-      title: 'Consulting Services',
-      desc: 'Expert guidance for market entry and business growth',
-      features: ['Market Analysis', 'Regulatory Compliance', 'Business Strategy', 'Partnership Development']
+      icon: BarChart3,
+      title: 'Marketing & Sales Support',
+      desc: 'Strategic branding and sales execution for local and global expansion.'
     }
   ];
 
@@ -73,27 +76,39 @@ export default function Services() {
       {/* Services Grid */}
       <section className="py-16 bg-white services-section">
         <div className="max-w-7xl mx-auto px-4 sm-px-6 lg-px-8">
-          <div className="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-3 gap-8 services-grid">
-            {services.map((service, index) => {
-              const Icon = service.icon;
-              return (
-                <div key={index} className="bg-gray-50 p-8 rounded-xl hover-shadow-lg transition-shadow service-card">
-                  <div className="w-16 h-16 bg-primary-dark-green rounded-full flex items-center justify-center mb-6 service-icon-container">
-                    <Icon className="w-8 h-8 text-white service-icon" />
+          <h2 className="text-3xl font-bold text-center mb-12 text-gray-900">Our core services</h2>
+          <div className="overflow-hidden">
+            <div className="flex animate-scroll services-grid">
+              {services.map((service, index) => {
+                const Icon = service.icon;
+                return (
+                  <div key={index} className={`bg-white p-6 rounded-xl shadow-md hover-shadow-lg transition-shadow service-card flex-shrink-0 w-64 mx-6 border-2 ${borderColors[index]}`}>
+                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-6 service-icon-container">
+                      <Icon className="w-6 h-6 text-green-600 service-icon" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
+                    <p className="text-gray-600">{service.desc}</p>
                   </div>
-                  <h3 className="text-xl font-bold text-text-dark mb-3">{service.title}</h3>
-                  <p className="text-gray-600 mb-4">{service.desc}</p>
-                  <ul className="space-y-2">
-                    {service.features.map((feature, i) => (
-                      <li key={i} className="flex items-center text-sm text-gray-700 feature-item">
-                        <div className="w-1_5 h-1_5 bg-green-500 rounded-full mr-2 feature-bullet"></div>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              );
-            })}
+                );
+              })}
+              {services.map((service, index) => {
+                const Icon = service.icon;
+                return (
+                  <div key={`duplicate-${index}`} className={`bg-white p-6 rounded-xl shadow-md hover-shadow-lg transition-shadow service-card flex-shrink-0 w-64 mx-6 border-2 ${borderColors[index]}`}>
+                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-6 service-icon-container">
+                      <Icon className="w-6 h-6 text-green-600 service-icon" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 mb-3">{service.title}</h3>
+                    <p className="text-gray-600">{service.desc}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+          <div className="text-center mt-12">
+            <button className="bg-green-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-green-700 transition-colors">
+              Request a Quote
+            </button>
           </div>
         </div>
       </section>

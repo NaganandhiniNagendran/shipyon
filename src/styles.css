@@ -535,6 +535,7 @@ body {
 
 .font-bold {
   font-weight: 700;
+  color:#16a34a
 }
 
 .font-semibold {
@@ -595,6 +596,10 @@ body {
 
 .shadow-lg {
   box-shadow: var(--shadow-lg);
+  display: block;
+  margin: auto;
+  width: 40%;
+  height: 100%;
 }
 
 .shadow-md {
@@ -1232,6 +1237,7 @@ body {
   .text-4xl {
     font-size: 1.75rem !important;
     line-height: 1.25 !important;
+    color: #16a34a
   }
 
   h3,

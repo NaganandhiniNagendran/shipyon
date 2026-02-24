@@ -86,14 +86,20 @@
   justify-content: center;
 }
 
-/* Special styling for India map with transparent background */
-.why-choose-card:nth-child(2) .feature-circle {
+/* Special styling for image features with transparent background */
+.why-choose-card:nth-child(1) .feature-circle,
+.why-choose-card:nth-child(2) .feature-circle,
+.why-choose-card:nth-child(3) .feature-circle,
+.why-choose-card:nth-child(4) .feature-circle {
   background: transparent;
   border: none;
   box-shadow: none;
 }
 
-.why-choose-card:nth-child(2):hover .feature-circle {
+.why-choose-card:nth-child(1):hover .feature-circle,
+.why-choose-card:nth-child(2):hover .feature-circle,
+.why-choose-card:nth-child(3):hover .feature-circle,
+.why-choose-card:nth-child(4):hover .feature-circle {
   box-shadow: none;
 }
 
@@ -133,6 +139,22 @@
   transform: rotate(45deg);
 }
 
+.sourcing-location-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sourcing-location-image {
+  width: 9rem;
+  height: 9rem;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 .india-map {
   position: relative;
   width: 100%;
@@ -146,7 +168,7 @@
   width: 7rem;
   height: 7rem;
   object-fit: cover;
- 
+
 }
 
 .multi-category-box {
@@ -156,6 +178,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.multi-category-image {
+  width: 9rem;
+  height: 9rem;
+  object-fit: contain;
 }
 
 .box-icon {
@@ -215,6 +243,18 @@
   color: white;
 }
 
+.supplier-relations-image {
+  width: 9rem;
+  height: 9rem;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  border-radius: 50%;
+}
+
 .distribution-arrows {
   position: absolute;
   top: 50%;
@@ -244,8 +284,8 @@
 
 .feature-number {
   position: absolute;
-  top: -10px;
-  right: -10px;
+  top: 70px;
+  right: 70px;
   background: white;
   color: var(--feature-color);
   width: 40px;
@@ -257,6 +297,7 @@
   font-weight: 700;
   font-size: 0.875rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 2;
 }
 
 .feature-title {
@@ -271,28 +312,28 @@
   .why-choose-us-section {
     padding: 4rem 1rem;
   }
-  
+
   .why-choose-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
   }
-  
+
   .feature-circle {
     width: 100px;
     height: 100px;
   }
-  
+
   .feature-icon {
     width: 2.5rem;
     height: 2.5rem;
   }
-  
+
   .primary-icon,
   .secondary-icon {
     width: 2rem;
     height: 2rem;
   }
-  
+
   .feature-title {
     font-size: 0.875rem;
     max-width: 120px;

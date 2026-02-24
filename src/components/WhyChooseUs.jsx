@@ -9,6 +9,7 @@ export default function WhyChooseUs() {
       title: 'Sourcing Locations',
       icon: Globe,
       secondaryIcon: MapPin,
+      isSourcingLocation: true,
       color: '#14b8a6'
     },
     {
@@ -31,6 +32,7 @@ export default function WhyChooseUs() {
       title: 'Domestic & International Distribution',
       icon: Truck,
       secondaryIcon: Ship,
+      isDomesticTrading: true,
       color: '#1e40af'
     }
   ];
@@ -53,31 +55,37 @@ export default function WhyChooseUs() {
               <div key={item.id} className="why-choose-card" style={{ '--feature-color': item.color }}>
                 <div className="feature-circle">
                   <div className="feature-icon-container">
-                    {item.isIndiaMap ? (
+                    {item.isSourcingLocation ? (
+                      <div className="sourcing-location-container">
+                        <img
+                          src="/sourcing-location-image.png"
+                          alt="Sourcing Locations"
+                          className="sourcing-location-image"
+                        />
+                      </div>
+                    ) : item.isIndiaMap ? (
                       <div className="india-map">
-                        <img 
-                          src="/global-supplier-relations-icon-line-illustration-vector.jpg" 
-                          alt="India Map" 
+                        <img
+                          src="/global-supplier-relations-icon-line-illustration-vector.jpg"
+                          alt="India Map"
                           className="india-map-image"
                         />
                       </div>
                     ) : item.hasCategories ? (
                       <div className="multi-category-box">
-                        <Icon className="box-icon" />
-                        <div className="category-icons">
-                          <Leaf className="category-icon" />
-                          <Settings className="gear-icon" />
-                          <Bolt className="bolt-icon" />
-                        </div>
+                        <img
+                          src="/image%20copy.png"
+                          alt="Multi-Category Trade"
+                          className="multi-category-image"
+                        />
                       </div>
-                    ) : item.secondaryIcon ? (
+                    ) : item.isDomesticTrading ? (
                       <div className="dual-icons">
-                        <Icon className="primary-icon" />
-                        <SecondaryIcon className="secondary-icon" />
-                        <div className="distribution-arrows">
-                          <span className="arrow-text">DOMESTIC</span>
-                          <span className="arrow-text">INTERNATIONAL</span>
-                        </div>
+                        <img
+                          src="/demo.png"
+                          alt="Global Supplier Relations"
+                          className="supplier-relations-image"
+                        />
                       </div>
                     ) : (
                       <div className="globe-with-pin">

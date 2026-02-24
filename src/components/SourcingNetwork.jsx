@@ -48,39 +48,12 @@ export default function SourcingNetwork() {
           </h2>
         </div>
 
-        <div className="relative bg-gray-50 rounded-lg p-8">
-          {/* India Map Container */}
-          <div className="relative w-full h-[600px] flex items-center justify-center">
-            {/* Simple India Map Shape */}
-            <svg viewBox="0 0 400 500" className="w-full h-full max-w-2xl">
-              <path
-                d="M200 50 L250 100 L280 150 L270 200 L250 250 L220 300 L200 350 L180 400 L150 420 L120 380 L140 300 L180 200 L200 150 Z"
-                fill="#f3f4f6"
-                stroke="#d1d5db"
-                strokeWidth="2"
-              />
-            </svg>
-
-            {/* Location Markers */}
-            {sourcingLocations.map((location, index) => (
-              <div
-                key={index}
-                className={`absolute ${location.position} transform -translate-x-1/2 -translate-y-1/2`}
-              >
-                <div className="flex flex-col items-center">
-                  <MapPin className="w-6 h-6 text-red-500" />
-                  <div className="mt-1 text-center">
-                    <div className="font-semibold text-gray-800 text-sm">
-                      {location.city}
-                    </div>
-                    <div className="text-xs text-gray-600">
-                      {location.products.join(', ')}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="bg-gray-50 rounded-lg p-8">
+          <img
+            src="/strong-sourcing-network-india.png"
+            alt="Strong Sourcing Network Across India"
+            className="w-full h-auto max-w-full rounded-lg shadow-lg mx-auto"
+          />
         </div>
       </div>
     </section>
