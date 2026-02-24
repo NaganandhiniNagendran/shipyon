@@ -124,8 +124,38 @@
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
+
   .about-title {
     font-size: 2rem;
+  }
+}
+
+/* Forklift interactive overlaps */
+.story-forklift-circle {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 140px;
+  height: 140px;
+  border: 6px solid white;
+  left: -0.5rem;
+  z-index: 20;
+}
+
+@media (min-width: 640px) {
+  .story-forklift-circle {
+    width: 200px;
+    height: 200px;
+    border-width: 10px;
+    left: -2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .story-forklift-circle {
+    width: 260px;
+    height: 260px;
+    border-width: 16px;
+    left: -3rem;
   }
 }

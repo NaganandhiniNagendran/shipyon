@@ -1,19 +1,14 @@
-import { Mail, Phone, MapPin, Clock, Send, User, MessageSquare } from 'lucide-react';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import '../styles/Contact.css';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
-    subject: '',
-    message: ''
+    email: ''
   });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({ name: '', email: '', subject: '', message: '' });
   };
 
   const handleChange = (e) => {
@@ -23,188 +18,91 @@ export default function Contact() {
     });
   };
 
-  const contactInfo = [
-    {
-      icon: MapPin,
-      title: 'Our Office',
-      content: '123 Export Plaza, Agricultural District, New Delhi, India'
-    },
-    {
-      icon: Phone,
-      title: 'Phone Number',
-      content: '+91 123 456 7890'
-    },
-    {
-      icon: Mail,
-      title: 'Email Address',
-      content: 'export@agriexport.com'
-    },
-    {
-      icon: Clock,
-      title: 'Working Hours',
-      content: 'Monday - Friday: 9:00 AM - 6:00 PM'
-    }
-  ];
-
   return (
-    <div className="min-h-screen contact-container">
-      {/* Hero */}
-      <section className="relative text-white hero-section overflow-hidden">
-        <div
-          className="absolute inset-0 hero-image-bg"
-          style={{ backgroundImage: 'url("/ship-hero.png")' }}
-        ></div>
-        <div className="hero-overlay"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm-px-6 lg-px-8 py-24 hero-content">
-          <div className="text-center hero-text">
-            <h1 className="text-4xl md-text-5xl font-bold mb-6 hero-title">
-              Contact <span className="text-secondary-gold">Us</span>
-            </h1>
-            <p className="text-xl max-w-3xl mx-auto text-gray-100 hero-subtitle">
-              Ready to start your agricultural export journey? Get in touch with our expert team
-            </p>
-          </div>
-        </div>
-      </section>
+    <div className="contact-page">
+      <div className="contact-top-section">
+        <h1 className="contact-title">Contact Us</h1>
+        <p className="contact-subtitle">
+          Any questions or remarks? Just write us a message!
+        </p>
 
-      {/* Contact Info */}
-      <section className="py-16 bg-white contact-info-section">
-        <div className="max-w-7xl mx-auto px-4 sm-px-6 lg-px-8">
-          <div className="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-4 gap-8 contact-info-grid">
-            {contactInfo.map((info, index) => {
-              const Icon = info.icon;
-              return (
-                <div key={index} className="text-center contact-info-item">
-                  <div className="w-16 h-16 bg-primary-dark-green rounded-full flex items-center justify-center mx-auto mb-4 icon-container">
-                    <Icon className="w-8 h-8 text-white contact-icon" />
-                  </div>
-                  <h3 className="font-semibold text-lg text-text-dark mb-2">{info.title}</h3>
-                  <p className="text-gray-600">{info.content}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Form */}
-      <section className="py-16 bg-gray-50 contact-form-section">
-        <div className="max-w-7xl mx-auto px-4 sm-px-6 lg-px-8">
-          <div className="grid grid-cols-1 lg-grid-cols-2 gap-12 form-content">
-            {/* Form */}
-            <div className="bg-white p-8 rounded-xl shadow-sm form-container">
-              <h2 className="text-2xl font-bold text-text-dark mb-6">Send us a Message</h2>
-              <form onSubmit={handleSubmit} className="space-y-6 contact-form">
-                <div className="form-group">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Full Name
-                  </label>
-                  <div className="relative">
-                    <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 user-icon" />
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus-ring-2 focus-ring-green-500 focus-border-transparent name-input"
-                      placeholder="Enter your full name"
-                    />
-                  </div>
-                </div>
-
-                <div className="form-group">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Email Address
-                  </label>
-                  <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5 email-icon" />
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus-ring-2 focus-ring-green-500 focus-border-transparent email-input"
-                      placeholder="Enter your email address"
-                    />
-                  </div>
-                </div>
-
-                <div className="form-group">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Subject
-                  </label>
-                  <input
-                    type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus-ring-2 focus-ring-green-500 focus-border-transparent subject-input"
-                    placeholder="Enter subject"
-                  />
-                </div>
-
-                <div className="form-group">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Message
-                  </label>
-                  <div className="relative">
-                    <MessageSquare className="absolute left-3 top-3 text-gray-400 w-5 h-5 message-icon" />
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      required
-                      rows={5}
-                      className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus-ring-2 focus-ring-green-500 focus-border-transparent message-input"
-                      placeholder="Enter your message"
-                    ></textarea>
-                  </div>
-                </div>
-
-                <button
-                  type="submit"
-                  className="w-full bg-primary-dark-green hover-bg-primary-green text-white font-semibold py-3 px-6 rounded-lg transition-colors flex items-center justify-center submit-button"
-                >
-                  <Send className="w-5 h-5 mr-2" />
-                  Send Message
-                </button>
-              </form>
+        <form onSubmit={handleSubmit} className="contact-form">
+          <div className="form-row">
+            <div className="form-group">
+              <label>Email</label>
+              <input
+                type="email"
+                name="email"
+                placeholder="Enter a valid email address"
+                value={formData.email}
+                onChange={handleChange}
+                required
+              />
             </div>
-
-            {/* Map */}
-            <div className="map-container">
-              <h2 className="text-2xl font-bold text-text-dark mb-6">Our Location</h2>
-              <div className="bg-gray-200 rounded-xl h-96 flex items-center justify-center mb-6 map-placeholder">
-                <MapPin className="w-12 h-12 text-gray-400" />
-              </div>
-              <div className="bg-white p-6 rounded-xl why-choose-us">
-                <h3 className="font-semibold text-lg text-text-dark mb-4">Why Choose AgriExport?</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 benefit-bullet"></div>
-                    <span className="text-gray-700">15+ years of export experience</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 benefit-bullet"></div>
-                    <span className="text-gray-700">Certified quality assurance</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 benefit-bullet"></div>
-                    <span className="text-gray-700">Global logistics network</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mt-2 mr-3 benefit-bullet"></div>
-                    <span className="text-gray-700">24/7 customer support</span>
-                  </li>
-                </ul>
-              </div>
+            <div className="form-group">
+              <label>Name</label>
+              <input
+                type="text"
+                name="name"
+                placeholder="Enter your Name"
+                value={formData.name}
+                onChange={handleChange}
+                required
+              />
             </div>
           </div>
+
+          <button type="submit" className="submit-btn">
+            SUBMIT
+          </button>
+        </form>
+      </div>
+
+      <div className="contact-bottom-section">
+        <div className="bg-split">
+          <div className="bg-white-half"></div>
+          <div className="bg-cyan-half"></div>
         </div>
-      </section>
+
+        <div className="info-banner-wrapper">
+          <div className="info-banner">
+
+            <div className="info-item">
+              <div className="floating-icon">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
+                  <path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L6 8.3V13h2V9.6l1.8-.7z" />
+                </svg>
+              </div>
+              <h3>ABOUT CLUB</h3>
+              <p>Running Guide</p>
+              <p>Workouts</p>
+            </div>
+
+            <div className="info-item">
+              <div className="floating-icon">
+                <svg width="34" height="34" viewBox="0 0 24 24" fill="white">
+                  <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z" />
+                </svg>
+              </div>
+              <h3>PHONE (LANDLINE)</h3>
+              <p>+ 912 3 567 8987</p>
+              <p>+ 912 5 252 3336</p>
+            </div>
+
+            <div className="info-item">
+              <div className="floating-icon">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="white">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                </svg>
+              </div>
+              <h3>OUR OFFICE LOCATION</h3>
+              <p>The Interior Design Studio Company</p>
+              <p>The Courtyard, Al Quoz 1, Colorado, USA</p>
+            </div>
+
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
