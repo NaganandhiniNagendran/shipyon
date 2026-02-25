@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Leaf } from 'lucide-react';
 import '../styles/Header.css';
 
 export default function Header({ currentPage, onNavigate }) {
@@ -27,7 +27,23 @@ export default function Header({ currentPage, onNavigate }) {
               className="logo-container"
               onClick={() => onNavigate('home')}
             >
-              <h1 className="logo-text">Shipyo</h1>
+              <h1 className="logo-text">
+                Shipyo<span style={{ color: 'var(--primary-green)', position: 'relative', display: 'inline-block' }}>
+                  n
+                  <Leaf
+                    style={{
+                      position: 'absolute',
+                      top: '-0.1em',
+                      right: '-0.5em',
+                      width: '0.7em',
+                      height: '0.7em',
+                      transform: 'rotate(15deg)',
+                      fill: 'currentColor',
+                      strokeWidth: 1.5
+                    }}
+                  />
+                </span>
+              </h1>
             </div>
 
             <nav className="navigation">
@@ -63,8 +79,8 @@ export default function Header({ currentPage, onNavigate }) {
                   key={item.path}
                   onClick={() => handleNav(item.path)}
                   className={`w-full text-right py-2.5 px-3 mb-1 font-medium transition-colors bg-transparent border-none rounded-lg ${currentPage === item.path
-                      ? 'text-primary-dark-green font-bold bg-green-50/50'
-                      : 'text-gray-700 hover:text-primary-dark-green hover:bg-gray-50'
+                    ? 'text-primary-dark-green font-bold bg-green-50/50'
+                    : 'text-gray-700 hover:text-primary-dark-green hover:bg-gray-50'
                     }`}
                 >
                   {item.name}
