@@ -32,7 +32,7 @@
   margin-bottom: 4rem;
 }
 
-/* Scrolling animation */
+/* Enhanced Scrolling animation */
 @keyframes scroll {
   0% {
     transform: translateX(0);
@@ -43,39 +43,80 @@
 }
 
 .animate-scroll {
-  animation: scroll 5s linear infinite;
+  animation: scroll 20s linear infinite;
+  display: flex;
+  width: fit-content;
 }
 
+
 .service-card {
-  background: white;
-  border-radius: 5rem;
+  background: #111827;
+  border-radius: 1rem;
   padding: 2rem;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  transition: all 0.3s ease;
-  margin: 1.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  margin: 0 1.5rem;
+  border: 1px solid #374151;
+  position: relative;
+  overflow: hidden;
 }
 
 .service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  border-color: #16a34a;
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 25px -5px rgba(239, 68, 68, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+  border-color: #374151;
 }
 
 .service-icon-container {
   width: 3rem;
   height: 3rem;
-  background: #dcfce7;
+  background: #1f2937;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid #374151;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-icon-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.service-card:hover .service-icon-container {
+  transform: scale(1.1) rotate(5deg);
+  border-color: #ef4444;
+  box-shadow: 0 8px 16px rgba(239, 68, 68, 0.3);
+}
+
+.service-card:hover .service-icon-container::before {
+  opacity: 0.1;
+}
+
+.service-card:hover .service-icon {
+  color: #dc2626;
+  transform: scale(1.2);
 }
 
 .service-icon {
-  color: #16a34a;
+  color: #ef4444;
   width: 1.5rem;
   height: 1.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 
 .service-title {
