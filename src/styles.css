@@ -309,6 +309,10 @@ body {
   height: 24rem;
 }
 
+.h-128 {
+  height: 32rem;
+}
+
 .max-w-7xl {
   max-width: 80rem;
 }
@@ -341,6 +345,10 @@ body {
   border-radius: 0.75rem;
 }
 
+.rounded-2xl {
+  border-radius: 1rem;
+}
+
 .border {
   border-width: 1px;
 }
@@ -371,6 +379,10 @@ body {
 
 .bg-black-20 {
   background-color: rgba(0, 0, 0, 0.2);
+}
+
+.bg-black-40 {
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 .bg-white-10 {
@@ -478,6 +490,11 @@ body {
   padding-bottom: 4rem;
 }
 
+.py-20 {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
 .py-24 {
   padding-top: 6rem;
   padding-bottom: 6rem;
@@ -535,7 +552,7 @@ body {
 
 .font-bold {
   font-weight: 700;
-  color:#16a34a
+  color: #16a34a
 }
 
 .font-semibold {
@@ -795,7 +812,7 @@ body {
 }
 
 .hero-overlay {
-  background: linear-gradient(135deg, rgba(61, 174, 109, 0.8) 0%, rgba(0, 0, 0, 0.6) 100%);
+  background-color: (135deg, rgb(49 220 121 / 46%) 0%, rgb(0 0 0 / 52%) 100%);
   position: absolute;
   inset: 0;
 }
@@ -818,6 +835,36 @@ body {
 
 .object-cover {
   object-fit: cover;
+}
+
+.group {
+  position: relative;
+}
+
+.hover-shadow-xl:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+.duration-300 {
+  transition-duration: 300ms;
+}
+
+.duration-500 {
+  transition-duration: 500ms;
+}
+
+.duration-1000 {
+  transition-duration: 1000ms;
+}
+
+.hover\:-translate-y-2:hover {
+  transform: translateY(-0.5rem);
 }
 
 .group:hover .group-hover-scale-110 {

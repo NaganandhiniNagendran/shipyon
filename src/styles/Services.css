@@ -1,9 +1,8 @@
 /* Services Page Specific Styles */
 
 .services-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 4rem 2rem;
+  width: 100%;
+  min-height: 100vh;
 }
 
 .services-header {
@@ -32,6 +31,34 @@
   margin-bottom: 4rem;
 }
 
+/* Title hover effects */
+.title-hover {
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.title-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #10b981, #059669);
+  transition: width 0.3s ease;
+}
+
+.title-hover:hover::after {
+  width: 50px;
+}
+
+.title-hover:hover {
+  color: #10b981;
+}
+
 /* Enhanced Scrolling animation */
 @keyframes scroll {
   0% {
@@ -46,7 +73,10 @@
   animation: scroll 20s linear infinite;
   display: flex;
   width: fit-content;
+  will-change: transform;
 }
+
+
 
 
 .service-card {
@@ -197,4 +227,9 @@
   .services-title {
     font-size: 2rem;
   }
+}
+
+/* Visual feedback for paused state */
+.services-container .overflow-x-auto {
+  position: relative;
 }

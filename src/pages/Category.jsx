@@ -1,145 +1,80 @@
-import { ShoppingCart, Star, Filter } from 'lucide-react';
-import { useState } from 'react';
+import './Category.css';
 
-export default function Category() {
-  const [sortBy, setSortBy] = useState('featured');
-
+export default function Category({ header, onNavigate }) {
   const products = [
     {
-      name: 'Premium Red Apples',
-      image: 'https://images.pexels.com/photos/206959/pexels-photo-206959.jpeg?auto=compress&cs=tinysrgb&w=600',
-      price: '$45.00',
-      rating: 4.8,
-      description: 'Crisp, sweet apples from certified organic orchards',
-      unit: '25kg box'
+      name: 'Onions',
+      image: '/onion.png',
+      description: 'Premium quality onions with perfect flavor and long shelf life. Ideal for culinary applications worldwide.',
+      source: 'Sourced from Nashik, Maharashtra'
     },
     {
-      name: 'Fresh Golden Onions',
-      image: 'https://images.pexels.com/photos/3650438/pexels-photo-3650438.jpeg?auto=compress&cs=tinysrgb&w=600',
-      price: '$22.00',
-      rating: 4.6,
-      description: 'High-quality onions with excellent storage life',
-      unit: '30kg sack'
+      name: 'Tomatoes',
+      image: '/tomato.png',
+      description: 'Fresh, ripe tomatoes with rich flavor and excellent nutritional value. Perfect for sauces and fresh consumption.',
+      source: 'Sourced from Karnataka'
     },
     {
-      name: 'Organic Tomatoes',
-      image: 'https://images.pexels.com/photos/1327838/pexels-photo-1327838.jpeg?auto=compress&cs=tinysrgb&w=600',
-      price: '$32.00',
-      rating: 4.9,
-      description: 'Vine-ripened organic tomatoes perfect for export',
-      unit: '20kg crate'
+      name: 'Potatoes',
+      image: '/potato.png',
+      description: 'High-quality potatoes with consistent size and texture. Excellent for frying, baking, and boiling.',
+      source: 'Sourced from Uttar Pradesh'
     },
     {
-      name: 'Fresh Garlic Bulbs',
-      image: 'https://images.pexels.com/photos/8844141/pexels-photo-8844141.jpeg?auto=compress&cs=tinysrgb&w=600',
-      price: '$28.00',
-      rating: 4.7,
-      description: 'Premium quality garlic bulbs with strong flavor',
-      unit: '15kg bag'
+      name: 'Garlic',
+      image: '/garlic.png',
+      description: 'Aromatic garlic bulbs with strong flavor profile. Essential ingredient for global cuisines.',
+      source: 'Sourced from Rajasthan'
     }
   ];
 
-  const sortOptions = [
-    { value: 'featured', label: 'Featured' },
-    { value: 'price-low', label: 'Price: Low to High' },
-    { value: 'price-high', label: 'Price: High to Low' },
-    { value: 'rating', label: 'Top Rated' }
-  ];
-
   return (
-    <div className="min-h-screen bg-gray-50 category-container">
-      {/* Hero */}
-      <section className="relative text-white py-16 hero-section overflow-hidden">
+    <div className="category-page">
+      {/* Hero Section */}
+      <section className="hero-section">
+        {header}
         <div
-          className="absolute inset-0 hero-image-bg"
-          style={{ backgroundImage: 'url("/ship-hero.png")' }}
+          className="hero-background"
+          style={{ backgroundImage: 'url("/category bg.png")' }}
         ></div>
         <div className="hero-overlay"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm-px-6 lg-px-8">
-          <div className="flex flex-col md-flex items-center justify-between hero-content">
-            <div className="mb-6 md-mb-0 hero-text">
-              <h1 className="text-4xl md-text-5xl font-bold mb-4 hero-title">
-                Fresh <span className="text-secondary-gold">Fruits</span>
-              </h1>
-              <p className="text-xl text-gray-100 max-w-2xl hero-subtitle">
-                Premium quality fruits sourced from the best orchards worldwide
-              </p>
-            </div>
-            <div className="bg-white-10 backdrop-blur-sm rounded-xl p-6 hero-stats">
-              <div className="text-center">
-                <div className="text-3xl font-bold">120+</div>
-                <div className="text-gray-200">Products Available</div>
-              </div>
-            </div>
+        <div className="hero-content">
+          <div className="hero-title">
+           Fresh<span className="highlight">Products</span>
           </div>
+          <p className="hero-description">
+      Fresh produce sourced directly from trusted farmers, delivered with excellence.
+          </p>
         </div>
       </section>
 
-      {/* Filters */}
-      <section className="py-6 bg-white border-b filters-section">
-        <div className="max-w-7xl mx-auto px-4 sm-px-6 lg-px-8">
-          <div className="flex flex-col md-flex justify-between items-center gap-4 filters-content">
-            <div className="flex items-center gap-2 filter-group">
-              <Filter className="w-5 h-5 text-gray-600 filter-icon" />
-              <span className="text-gray-700">Filter by:</span>
-              <select className="border border-gray-300 rounded-lg px-3 py-2 focus-ring-2 focus-ring-green-500 filter-select">
-                <option>All Regions</option>
-                <option>Organic Only</option>
-                <option>Conventional</option>
-              </select>
-            </div>
-            <div className="flex items-center gap-2 sort-group">
-              <span className="text-gray-700">Sort by:</span>
-              <select
-                value={sortBy}
-                onChange={(e) => setSortBy(e.target.value)}
-                className="border border-gray-300 rounded-lg px-3 py-2 focus-ring-2 focus-ring-green-500 sort-select"
-              >
-                {sortOptions.map(option => (
-                  <option key={option.value} value={option.value}>{option.label}</option>
-                ))}
-              </select>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Products Grid */}
-      <section className="py-12 products-section">
-        <div className="max-w-7xl mx-auto px-4 sm-px-6 lg-px-8">
-          <div className="grid grid-cols-1 md-grid-cols-2 lg-grid-cols-3 gap-8 products-grid">
+      {/* Products Section */}
+      <section className="produce-section">
+        <div className="produce-container">
+          <div className="produce-grid">
             {products.map((product, index) => (
-              <div key={index} className="bg-white rounded-xl overflow-hidden shadow-sm hover-shadow-lg transition-shadow product-card">
-                <div className="relative">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-64 object-cover product-image"
-                  />
-                  <button className="absolute top-4 right-4 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg hover-bg-gray-50 transition-colors cart-button">
-                    <ShoppingCart className="w-6 h-6 text-text-dark" />
-                  </button>
-                </div>
-                <div className="p-6 product-info">
-                  <h3 className="text-xl font-bold text-text-dark mb-2">{product.name}</h3>
-                  <p className="text-gray-600 mb-4">{product.description}</p>
-                  <div className="flex items-center mb-4 rating-container">
-                    <div className="flex text-yellow-400">
-                      {[...Array(5)].map((_, i) => (
-                        <Star key={i} className={`w-5 h-5 ${i < Math.floor(product.rating) ? 'fill-current' : ''} product-rating-star`} />
-                      ))}
-                    </div>
-                    <span className="text-gray-600 ml-2">{product.rating}</span>
+              <div key={index} className="produce-card">
+                <div className="produce-card-container">
+                  <div className="produce-image-wrapper">
+                    <img
+                      src={product.image}
+                      alt={product.name}
+                      className="produce-image"
+                    />
                   </div>
-                  <div className="flex justify-between items-center mb-4 price-info">
-                    <div>
-                      <span className="text-2xl font-bold text-primary-dark-green">{product.price}</span>
-                      <span className="text-gray-500 ml-2">{product.unit}</span>
+                  <div className="produce-card-content">
+                    <h3 className="produce-card-title">{product.name}</h3>
+                    <p className="produce-card-description">{product.description}</p>
+                    <div className="produce-source-info">
+                      <svg className="location-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                      </svg>
+                      <span className="source-text">{product.source}</span>
                     </div>
+                    <button className="enquire-button" onClick={() => onNavigate('contact')}>
+                      Enquire Now
+                    </button>
                   </div>
-                  <button className="w-full bg-primary-dark-green hover-bg-primary-green text-white py-3 rounded-lg transition-colors font-semibold add-to-cart-button">
-                    Add to Cart
-                  </button>
                 </div>
               </div>
             ))}

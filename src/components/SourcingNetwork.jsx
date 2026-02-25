@@ -40,7 +40,7 @@ export default function SourcingNetwork() {
   ];
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16">
       <div className="max-w-6xl mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold text-green-600">
@@ -48,7 +48,7 @@ export default function SourcingNetwork() {
           </h2>
         </div>
 
-        <div className="bg-gray-50 rounded-lg p-8">
+        <div className="rounded-lg">
           <img
             src="/strong-sourcing-network-india.png"
             alt="Strong Sourcing Network Across India"

@@ -1,15 +1,10 @@
 import { Users, Award, Globe, Leaf, CheckCircle, ArrowRight } from 'lucide-react';
 import VisionMission from '../components/VisionMission';
 import LeadershipTeam from '../components/LeadershipTeam';
+import '../styles/AboutUsSection.css';
 
-export default function About() {
-  const stats = [
-    { value: '15+', label: 'Years Experience' },
-    { value: '50+', label: 'Countries Served' },
-    { value: '1000+', label: 'Global Partners' },
-    { value: '99.8%', label: 'On-time Delivery' },
-  ];
-
+export default function About({ header }) {
+  
   const values = [
     { icon: Leaf, title: 'Sustainability', desc: 'Committed to eco-friendly farming and packaging practices' },
     { icon: Award, title: 'Quality First', desc: 'Rigorous quality control from farm to delivery' },
@@ -28,6 +23,7 @@ export default function About() {
     <div className="min-h-screen about-container">
       {/* Hero Section */}
       <section className="relative text-white hero-section overflow-hidden">
+        {header}
         <video
           className="absolute inset-0 w-full h-full object-cover hero-video"
           autoPlay
@@ -35,38 +31,85 @@ export default function About() {
           muted
           playsInline
         >
-          <source src="/about-hero-video.mp4" type="video/mp4" />
+          <source src="/about us.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="hero-overlay"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 hero-content">
           <div className="text-center hero-text">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6 hero-title">
-              About <span className="text-secondary-gold">AgriExport</span>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6 hero-title title-hover">
+              Connecting Producers to Markets<span className="text-secondary-gold"> Seamlessly</span>
             </h1>
             <p className="text-xl max-w-3xl mx-auto text-gray-100 hero-subtitle">
-              Connecting the world with premium agricultural products through sustainable practices and global partnerships
+              Shipyon sources, supplies, and delivers premium agricultural and industrial products across domestic and global markets.
             </p>
           </div>
         </div>
       </section>
 
-
-
-
-
-      {/* New Image Section Above Vision and Mission */}
-      <section className="py-8 bg-gray-50 image-above-vision-section">
-        <div className="max-w-7xl mx-auto px-0 sm:px-0 lg:px-0">
-          <div className="flex justify-start">
-            <div className="image-wrapper-container w-2/3 md:w-1/2">
-              <div className="image-container bg-white rounded-3xl shadow-xl overflow-hidden border-4 border-gray-300" style={{ maxWidth: '100%', maxHeight: '400px', display: 'inline-block' }}>
-                <img
-                  src="" // Using an existing image from public folder
-                  alt="About our company"
-                  className="w-full h-auto rounded-3xl"
-                  style={{ objectFit: 'contain' }}
+      {/* About Us Section */}
+      <section className="py-16 bg-gray-50 about-us-section">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Image Grid */}
+            <div className="grid grid-cols-2 gap-4 about-image-grid">
+              <div className="space-y-4">
+                <img 
+                  src="/farmers.png" 
+                  alt="Farmers working in fields" 
+                  className="w-full h-48 object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
                 />
+                <img 
+                  src="/image1.png" 
+                  alt="Agricultural products" 
+                  className="w-full h-48 object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+                />
+              </div>
+              <div className="space-y-4 mt-8">
+                <img 
+                  src="/image2.webp" 
+                  alt="Quality products" 
+                  className="w-full h-48 object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+                />
+                <img 
+                  src="/warehouse.png" 
+                  alt="Warehouse storage" 
+                  className="w-full h-48 object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+                />
+              </div>
+            </div>
+            
+            {/* Content */}
+            <div className="about-content">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 title-hover">
+                About <span className="text-secondary-gold">Shipyon</span>
+              </h2>
+              <div className="w-20 h-1 bg-gradient-to-r from-secondary-gold to-primary-dark-green mb-6"></div>
+              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+                Shipyon is a premier agricultural export company dedicated to connecting South India's finest produce with global markets. We specialize in sourcing high-quality agricultural products and building sustainable supply chains that benefit both farmers and international buyers.
+              </p>
+              <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+                Our commitment to excellence ensures that every product meets the highest standards of quality and freshness. From farm to table, we maintain strict quality control measures and work closely with local farming communities to promote sustainable agricultural practices.
+              </p>
+              <div className="flex flex-wrap gap-6">
+                <div className="flex items-center feature-item">
+                  <div className="w-12 h-12 bg-primary-dark-green rounded-full flex items-center justify-center mr-3 icon-circle">
+                    <CheckCircle className="w-6 h-6 text-white" />
+                  </div>
+                  <span className="text-gray-700 font-medium">Quality Assured</span>
+                </div>
+                <div className="flex items-center feature-item">
+                  <div className="w-12 h-12 bg-primary-dark-green rounded-full flex items-center justify-center mr-3 icon-circle">
+                    <Globe className="w-6 h-6 text-white" />
+                  </div>
+                  <span className="text-gray-700 font-medium">Global Reach</span>
+                </div>
+                <div className="flex items-center feature-item">
+                  <div className="w-12 h-12 bg-primary-dark-green rounded-full flex items-center justify-center mr-3 icon-circle">
+                    <Leaf className="w-6 h-6 text-white" />
+                  </div>
+                  <span className="text-gray-700 font-medium">Sustainable</span>
+                </div>
               </div>
             </div>
           </div>
@@ -78,25 +121,12 @@ export default function About() {
         <VisionMission />
       </div>
 
-      {/* Stats */}
-      <section className="py-16 bg-gray-50 stats-section">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 stats-grid">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center stat-item">
-                <div className="text-3xl md:text-4xl font-bold text-primary-dark-green mb-2">{stat.value}</div>
-                <div className="text-gray-600">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+      
       {/* Values */}
-      <section className="py-16 bg-white values-section">
+      <section className="py-8 bg-white values-section">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 section-header">
-            <h2 className="text-3xl font-bold text-text-dark mb-4">Our Core Values</h2>
+            <h2 className="text-3xl font-bold text-text-dark mb-4 title-hover">Our Core Values</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
               Principles that guide everything we do in connecting farmers with global markets
             </p>

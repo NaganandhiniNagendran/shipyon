@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import '../styles/Contact.css';
 
-export default function Contact() {
+export default function Contact({ header }) {
   const [formData, setFormData] = useState({
-    name: '',
-    email: ''
+    firstName: '',
+    lastName: '',
+    email: '',
+    phone: '',
+    websiteType: '',
+    message: ''
   });
 
   const handleSubmit = (e) => {
@@ -20,42 +24,101 @@ export default function Contact() {
 
   return (
     <div className="contact-page">
-      <div className="contact-top-section">
-        <h1 className="contact-title">Contact Us</h1>
-        <p className="contact-subtitle">
-          Any questions or remarks? Just write us a message!
-        </p>
+      {/* Hero Section */}
+      <section className="relative text-white py-16 hero-section overflow-hidden">
+        {header}
+        <div
+          className="absolute inset-0 hero-image-bg"
+          style={{ backgroundImage: 'url("/contact us.png")' }}
+        ></div>
+        <div className="hero-overlay"></div>
+        <div className="relative max-w-7xl mx-auto px-4 sm-px-6 lg-px-8 text-center hero-content">
+          <h1 className="text-4xl md-text-5xl font-bold mb-4 hero-title">
+            Get in Touch with <span className="text-secondary-gold">Shipyon</span>
+          </h1>
+          <p className="text-xl text-gray-100 max-w-3xl mx-auto hero-subtitle">
+            For inquiries, orders, or partnership opportunities — we're here to help.
+          </p>
+        </div>
+      </section>
 
-        <form onSubmit={handleSubmit} className="contact-form">
-          <div className="form-row">
-            <div className="form-group">
-              <label>Email</label>
-              <input
-                type="email"
-                name="email"
-                placeholder="Enter a valid email address"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label>Name</label>
-              <input
-                type="text"
-                name="name"
-                placeholder="Enter your Name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-            </div>
+      {/* Ready to Source or Ship Products Section */}
+      <div className="ready-to-ship-section">
+        <div className="ready-to-ship-container">
+          <div className="ready-to-ship-content">
+            <h2 className="ready-to-ship-title">Ready to Source or Ship Products?</h2>
+            <p className="ready-to-ship-subtitle">Submit your inquiry or order — we'll take care of the rest.</p>
+            <button className="ready-to-ship-btn">Contact Shipyon</button>
           </div>
-
-          <button type="submit" className="submit-btn">
-            SUBMIT
-          </button>
-        </form>
+          
+          <div className="ready-to-ship-form">
+            <h3 className="form-section-title">Get in Touch</h3>
+            <form onSubmit={handleSubmit} className="simple-contact-form">
+              <div className="simple-form-group">
+                <label>Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Enter your Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              
+              <div className="simple-form-group">
+                <label>Email</label>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter your Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              
+              <div className="simple-form-group">
+                <label>Phone Number</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Enter your Phone Number"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              
+              <div className="simple-form-group">
+                <label>Company / Organization Name</label>
+                <input
+                  type="text"
+                  name="company"
+                  placeholder="Enter your Company / Organization Name"
+                  value={formData.company}
+                  onChange={handleChange}
+                />
+              </div>
+              
+              <div className="simple-form-group">
+                <label>Message</label>
+                <textarea
+                  name="message"
+                  placeholder="Enter your Message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  rows="5"
+                  required
+                ></textarea>
+              </div>
+              
+              <button type="submit" className="simple-submit-btn">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
 
       <div className="contact-bottom-section">
@@ -66,7 +129,6 @@ export default function Contact() {
 
         <div className="info-banner-wrapper">
           <div className="info-banner">
-
             <div className="info-item">
               <div className="floating-icon">
                 <svg width="40" height="40" viewBox="0 0 24 24" fill="white">
@@ -99,7 +161,6 @@ export default function Contact() {
               <p>The Interior Design Studio Company</p>
               <p>The Courtyard, Al Quoz 1, Colorado, USA</p>
             </div>
-
           </div>
         </div>
       </div>

@@ -1,40 +1,48 @@
-/* How We Work Section Styles */
+/* How We Work Section - Old UI Design */
 
 .how-we-work-section {
-  padding: 6rem 2rem;
-  background: white;
+  padding: 80px 0;
+  background: #ffffff;
 }
 
 .container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 0 20px;
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 60px;
 }
 
 .section-title {
   font-size: 2.5rem;
   font-weight: 700;
-  color: #16a34a;
+  color: #1f2937;
   margin-bottom: 1rem;
   position: relative;
   display: inline-block;
 }
 
-.section-title::after {
+.section-title.title-hover::after {
   content: '';
   position: absolute;
-  bottom: -0.5rem;
+  bottom: -4px;
   left: 50%;
   transform: translateX(-50%);
-  width: 3rem;
-  height: 3px;
-  background: linear-gradient(135deg, #16a34a, #22c55e);
-  border-radius: 2px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #10b981, #059669);
+  transition: width 0.3s ease;
+}
+
+.section-title.title-hover:hover::after {
+  width: 50px;
+}
+
+.section-title.title-hover:hover {
+  color: #10b981;
 }
 
 .steps-container {
@@ -46,16 +54,11 @@
 .connection-line {
   position: absolute;
   top: 60px;
-  left: 0;
-  right: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
   height: 2px;
-  background: repeating-linear-gradient(
-    to right,
-    #d1d5db,
-    #d1d5db 8px,
-    transparent 8px,
-    transparent 16px
-  );
+  background: #e5e7eb;
   z-index: 1;
 }
 
@@ -63,17 +66,18 @@
   position: absolute;
   width: 12px;
   height: 12px;
-  background: #6b7280;
+  background: #ffffff;
+  border: 3px solid #10b981;
   border-radius: 50%;
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
 }
 
-.dot-1 { left: 12.5%; }
-.dot-2 { left: 37.5%; }
-.dot-3 { left: 62.5%; }
-.dot-4 { left: 87.5%; }
+.line-dot.dot-1 { left: 12.5%; }
+.line-dot.dot-2 { left: 37.5%; }
+.line-dot.dot-3 { left: 62.5%; }
+.line-dot.dot-4 { left: 87.5%; }
 
 .steps-grid {
   display: grid;
@@ -84,110 +88,152 @@
 }
 
 .step-card {
-  background: white;
-  border: 1px solid #e5e7eb;
-  border-radius: 1rem;
-  padding: 2rem 1.5rem;
   text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
+  background: #ffffff;
+  padding: 2rem 1rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f3f4f6;
 }
 
 .step-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  border-color: #d1d5db;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
 .step-icon-circle {
   width: 80px;
   height: 80px;
   border-radius: 50%;
-  background: var(--step-bg);
-  border: 3px solid var(--step-color);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  margin: 0 auto 1.5rem;
+  background: var(--step-bg);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   position: relative;
-}
-
-.step-card:hover .step-icon-circle {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .icon-container {
-  position: relative;
-  width: 100%;
-  height: 100%;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .step-icon {
-  width: 2.5rem;
-  height: 2.5rem;
-  color: var(--step-color);
-  transition: transform 0.3s ease;
-}
-
-.step-card:hover .step-icon {
-  transform: scale(1.1);
-}
-
-.dual-shipping-icons {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-}
-
-.primary-shipping-icon {
-  width: 2rem;
-  height: 2rem;
-  color: var(--step-color);
-}
-
-.secondary-shipping-icon {
-  width: 1.5rem;
-  height: 1.5rem;
+  width: 32px;
+  height: 32px;
   color: var(--step-color);
 }
 
 .step-number {
-  font-size: 2rem;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #ffffff;
+  color: var(--step-color);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
   font-weight: 700;
-  color: #1f2937;
-  line-height: 1;
+  border: 2px solid var(--step-color);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .step-title {
-  font-size: 1rem;
-  font-weight: 600;
+  font-size: 1.125rem;
+  font-weight: 700;
   color: #1f2937;
-  line-height: 1.4;
-  margin: 0.5rem 0;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.step-title.title-hover::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #10b981, #059669);
+  transition: width 0.3s ease;
+}
+
+.step-title.title-hover:hover::after {
+  width: 30px;
+}
+
+.step-title.title-hover:hover {
+  color: #10b981;
 }
 
 .step-description {
   font-size: 0.875rem;
   color: #6b7280;
   line-height: 1.5;
-  max-width: 200px;
 }
 
-@media (max-width: 1024px) {
+/* Dual shipping icons for step 4 */
+.dual-shipping-icons {
+  position: relative;
+  width: 40px;
+  height: 40px;
+}
+
+.primary-shipping-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  color: var(--step-color);
+}
+
+.secondary-shipping-icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--step-color);
+  opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
   .steps-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .connection-line {
+    width: 90%;
+  }
+  
+  .line-dot.dot-1 { left: 25%; }
+  .line-dot.dot-2 { left: 75%; }
+  .line-dot.dot-3 { display: none; }
+  .line-dot.dot-4 { display: none; }
+  
+  .step-card:nth-child(3),
+  .step-card:nth-child(4) {
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .steps-grid {
+    grid-template-columns: 1fr;
     gap: 2rem;
   }
   
@@ -200,47 +246,7 @@
   }
   
   .step-card {
-    padding: 1.5rem 1rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .how-we-work-section {
-    padding: 4rem 1rem;
-  }
-  
-  .section-title {
-    font-size: 2rem;
-  }
-  
-  .steps-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .step-card {
-    padding: 1.5rem;
-  }
-  
-  .step-icon-circle {
-    width: 70px;
-    height: 70px;
-  }
-  
-  .step-icon {
-    width: 2rem;
-    height: 2rem;
-  }
-  
-  .step-number {
-    font-size: 1.5rem;
-  }
-  
-  .step-title {
-    font-size: 0.875rem;
-  }
-  
-  .step-description {
-    font-size: 0.8rem;
+    max-width: 300px;
+    margin: 0 auto;
   }
 }

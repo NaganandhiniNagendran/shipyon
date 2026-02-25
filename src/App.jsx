@@ -17,27 +17,27 @@ function App() {
   };
 
   const renderPage = () => {
+    const headerComponent = <Header currentPage={currentPage} onNavigate={handleNavigate} />;
     switch (currentPage) {
       case 'home':
-        return <Home onNavigate={handleNavigate} />;
+        return <Home header={headerComponent} onNavigate={handleNavigate} />;
       case 'about':
-        return <About />;
+        return <About header={headerComponent} onNavigate={handleNavigate} />;
       case 'services':
-        return <Services />;
+        return <Services header={headerComponent} onNavigate={handleNavigate} />;
       case 'products':
-        return <Products />;
+        return <Products header={headerComponent} onNavigate={handleNavigate} />;
       case 'category':
-        return <Category />;
+        return <Category header={headerComponent} onNavigate={handleNavigate} />;
       case 'contact':
-        return <Contact />;
+        return <Contact header={headerComponent} onNavigate={handleNavigate} />;
       default:
-        return <Home onNavigate={handleNavigate} />;
+        return <Home header={headerComponent} onNavigate={handleNavigate} />;
     }
   };
 
   return (
     <div className="min-h-screen bg-[#F8F5F0]">
-      <Header currentPage={currentPage} onNavigate={handleNavigate} />
       {renderPage()}
       <Footer />
     </div>

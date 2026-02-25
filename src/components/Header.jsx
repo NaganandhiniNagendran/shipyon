@@ -9,7 +9,7 @@ export default function Header({ currentPage, onNavigate }) {
     { name: 'Home', path: 'home' },
     { name: 'About', path: 'about' },
     { name: 'Services', path: 'services' },
-    { name: 'Our Products', path: 'products' },
+    { name: 'Products', path: 'products' },
     { name: 'Contact Us', path: 'contact' },
   ];
 

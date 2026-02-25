@@ -60,6 +60,7 @@
   border: 1px solid #e5e7eb;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .category-card::before {
@@ -74,8 +75,8 @@
 }
 
 .category-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transform: translateY(-6px);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   border-color: var(--category-color);
 }
 
@@ -93,13 +94,14 @@
 .category-icon {
   width: 4rem;
   height: 4rem;
-  background: linear-gradient(135deg, rgba(22, 163, 74, 0.1), rgba(34, 199, 94, 0.1));
+  background: linear-gradient(135deg, rgba(22, 163, 74, 0.08), rgba(34, 199, 94, 0.12));
   border-radius: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   transition: all 0.3s ease;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
 }
 
 .category-card:hover .category-icon {

@@ -3,10 +3,8 @@ import TradeCategories from '../components/TradeCategories';
 import WhyChooseUs from '../components/WhyChooseUs';
 import SourcingNetwork from '../components/SourcingNetwork';
 import HowWeWork from '../components/HowWeWork';
-import TestimonialSlider from '../components/TestimonialSlider';
-import '../styles/TestimonialSlider.css';
 
-export default function Home({ onNavigate }) {
+export default function Home({ header, onNavigate }) {
   const categories = [
     { name: 'Fresh Fruits', image: 'https://images.pexels.com/photos/1128678/pexels-photo-1128678.jpeg?auto=compress&cs=tinysrgb&w=800', count: '120+ Products' },
     { name: 'Organic Vegetables', image: 'https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=800', count: '85+ Products' },
@@ -28,12 +26,6 @@ export default function Home({ onNavigate }) {
     { name: 'Golden Onions', image: 'https://images.pexels.com/photos/3650438/pexels-photo-3650438.jpeg?auto=compress&cs=tinysrgb&w=600', price: '$22.00', rating: 4.6, unit: '/30kg sack' },
   ];
 
-  const testimonials = [
-    { name: 'David Chen', company: 'Global Foods Ltd.', text: 'Outstanding quality and reliability. Best agricultural export partner we have worked with.', rating: 5 },
-    { name: 'Sarah Johnson', company: 'Fresh Market Inc.', text: 'Their cold chain logistics ensure produce arrives in perfect condition every time.', rating: 5 },
-    { name: 'Ahmed Hassan', company: 'Middle East Imports', text: 'Professional service from order to delivery. Highly recommended for bulk exports.', rating: 4 },
-  ];
-
   const stats = [
     { value: '50+', label: 'Countries Served' },
     { value: '1000+', label: 'Partners Worldwide' },
@@ -45,6 +37,7 @@ export default function Home({ onNavigate }) {
     <div className="min-h-screen home-container">
       {/* Hero Section */}
       <section className="relative text-white hero-section overflow-hidden">
+        {header}
         <div
           className="absolute inset-0 hero-image-bg"
           style={{ backgroundImage: 'url("/ship-hero.png")' }}
@@ -78,14 +71,28 @@ export default function Home({ onNavigate }) {
         </div>
       </section>
 
+      {/* Strong Sourcing Network Across India */}
+      <SourcingNetwork />
+
       {/* Core Trade Categories */}
-      <TradeCategories />
+      <TradeCategories onNavigate={onNavigate} />
 
       {/* Why Choose Us */}
       <WhyChooseUs />
 
-      {/* Strong Sourcing Network Across India */}
-      <SourcingNetwork />
+      {/* Stats */}
+      <section className="py-16 bg-primary-dark-green text-white stats-section">
+        <div className="max-w-7xl mx-auto px-4 sm-px-6 lg-px-8">
+          <div className="grid grid-cols-2 md-grid-cols-4 gap-8 stats-grid">
+            {stats.map((stat, index) => (
+              <div key={index} className="text-center stat-item">
+                <div className="text-3xl md-text-4xl font-bold mb-2">{stat.value}</div>
+                <div className="text-gray-200">{stat.label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* How We Work */}
       <HowWeWork />
@@ -107,33 +114,6 @@ export default function Home({ onNavigate }) {
               );
             })}
           </div>
-        </div>
-      </section>
-
-      {/* Stats */}
-      <section className="py-16 bg-primary-dark-green text-white stats-section">
-        <div className="max-w-7xl mx-auto px-4 sm-px-6 lg-px-8">
-          <div className="grid grid-cols-2 md-grid-cols-4 gap-8 stats-grid">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center stat-item">
-                <div className="text-3xl md-text-4xl font-bold mb-2">{stat.value}</div>
-                <div className="text-gray-200">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-16 bg-white testimonials-section">
-        <div className="max-w-7xl mx-auto px-4 sm-px-6 lg-px-8">
-          <div className="text-center mb-12 section-header">
-            <h2 className="text-3xl font-bold text-text-dark mb-4">What Our Clients Say</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Trusted by importers and distributors across the globe
-            </p>
-          </div>
-          <TestimonialSlider testimonials={testimonials} />
         </div>
       </section>
     </div>

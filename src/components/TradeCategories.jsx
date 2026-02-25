@@ -1,7 +1,7 @@
-import { ArrowRight, Users, Leaf, Flame, Apple } from 'lucide-react';
+import { ArrowRight, Users, Leaf, Flame, Apple, Package, Factory } from 'lucide-react';
 import '../styles/TradeCategories.css';
 
-export default function TradeCategories() {
+export default function TradeCategories({ onNavigate }) {
   const categories = [
     {
       id: 1,
@@ -26,6 +26,22 @@ export default function TradeCategories() {
       icon: Apple,
       users: 312,
       color: '#ea580c'
+    },
+    {
+      id: 4,
+      title: 'Processed & Value-Added',
+      description: 'Ready-to-trade processed and specialty products.',
+      icon: Package,
+      users: 156,
+      color: '#0891b2'
+    },
+    {
+      id: 5,
+      title: 'Industrial & Commercial',
+      description: 'Bulk industrial and commercial supply solutions.',
+      icon: Factory,
+      users: 203,
+      color: '#7c3aed'
     }
   ];
 
@@ -33,7 +49,7 @@ export default function TradeCategories() {
     <section className="trade-categories-section">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">Core Trade Categories</h2>
+          <h2 className="section-title">Our Core Trade Categories</h2>
           <p className="section-subtitle">
             Explore our premium selection of agricultural products sourced from the best farms
           </p>
@@ -60,7 +76,10 @@ export default function TradeCategories() {
                 </div>
 
                 <div className="card-footer">
-                  <button className="view-products-btn">
+                  <button
+                    className="view-products-btn"
+                    onClick={() => onNavigate('products')}
+                  >
                     View Products
                     <ArrowRight className="arrow-icon" />
                   </button>
