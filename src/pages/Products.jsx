@@ -1,8 +1,11 @@
-import { ShoppingCart } from 'lucide-react';
+import { ShoppingCart, ChevronDown, ChevronUp } from 'lucide-react';
 import TestimonialSlider from '../components/TestimonialSlider';
 import '../styles/TestimonialSlider.css';
+import { useState } from 'react';
 
 export default function Products({ header, onNavigate }) {
+
+  const [showCategories, setShowCategories] = useState(false);
 
   const products = [
     { name: 'Fresh Produce', image: '/veg.png', description: 'Farm-fresh vegetables sourced directly from trusted local growers.' },
@@ -31,16 +34,16 @@ export default function Products({ header, onNavigate }) {
           muted
           playsInline
         >
-          <source src="/product page.mp4" type="video/mp4" />
+          <source src="/Products page.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
         <div className="hero-overlay"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm-px-6 lg-px-8 text-center hero-content">
           <h1 className="text-4xl md-text-5xl font-bold mb-4 hero-title title-hover">
-            Premium <span className="text-secondary-gold">Products</span>
+            Our <span className="text-secondary-gold"> Products</span>
           </h1>
           <p className="text-xl text-gray-100 max-w-3xl mx-auto hero-subtitle">
-            Discover our carefully curated selection of premium agricultural products
+           Quality-Sourced. Market-Ready. Globally Competitive.
           </p>
         </div>
       </section>
@@ -55,8 +58,20 @@ export default function Products({ header, onNavigate }) {
             {products.map((product, index) => (
               <div 
                 key={index} 
-                className={`bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer product-card ${product.name === 'Fresh Produce' ? 'hover:bg-green-50' : ''}`}
-                onClick={() => product.name === 'Fresh Produce' && onNavigate('category')}
+                className={`bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:scale-105 transition-all duration-300 cursor-pointer product-card ${product.name === 'Fresh Produce' ? 'hover:bg-green-50' : product.name === 'Spices & Plantation Crops' ? 'hover:bg-orange-50' : ''}`}
+                onClick={() => {
+                  if (product.name === 'Fresh Produce') {
+                    onNavigate('category');
+                  } else if (product.name === 'Spices & Plantation Crops') {
+                    onNavigate('spices');
+                  } else if (product.name === 'Fruits') {
+                    onNavigate('fruits');
+                  } else if (product.name === 'Processed & Value-Added') {
+                    onNavigate('processed');
+                  } else if (product.name === 'Industrial & Commercial Products') {
+                    onNavigate('commercial');
+                  }
+                }}
               >
                 <div className="relative">
                   <img
@@ -74,6 +89,63 @@ export default function Products({ header, onNavigate }) {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Product Categories Section */}
+      <section className="py-12 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm-px-6 lg-px-8">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-green-600 mb-4">Product Categories</h2>
+            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+              We source based on your exact requirement across categories.
+            </p>
+            <button
+              onClick={() => setShowCategories(!showCategories)}
+              className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center gap-2 mx-auto"
+            >
+              Start Your Order
+              {showCategories ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
+            </button>
+            
+            {showCategories && (
+              <div className="mt-8 max-w-3xl mx-auto">
+                <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Product Categories</h3>
+                  <div className="space-y-3">
+                    {products.map((product, index) => (
+                      <div 
+                        key={index}
+                        className="group flex items-center justify-between p-4 border border-gray-100 rounded-lg hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 hover:border-green-400 hover:shadow-md hover:scale-[1.02] transition-all duration-200 cursor-pointer"
+                        onClick={() => {
+                          if (product.name === 'Fresh Produce') {
+                            onNavigate('category');
+                          } else if (product.name === 'Spices & Plantation Crops') {
+                            onNavigate('spices');
+                          } else if (product.name === 'Fruits') {
+                            onNavigate('fruits');
+                          } else if (product.name === 'Processed & Value-Added') {
+                            onNavigate('processed');
+                          } else if (product.name === 'Industrial & Commercial Products') {
+                            onNavigate('commercial');
+                          }
+                        }}
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className="w-2 h-2 bg-gray-300 rounded-full group-hover:bg-green-500 group-hover:scale-150 transition-all duration-200"></div>
+                          <div>
+                            <div className="font-medium text-gray-900 group-hover:text-green-700 transition-colors duration-200">{product.name}</div>
+                            <div className="text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-200">{product.description}</div>
+                          </div>
+                        </div>
+                        <ChevronDown className="w-4 h-4 text-gray-400 group-hover:text-green-600 group-hover:translate-x-1 transition-all duration-200 -rotate-90" />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>

@@ -86,7 +86,7 @@ export default function About({ header }) {
               </h2>
               <div className="w-20 h-1 bg-gradient-to-r from-secondary-gold to-primary-dark-green mb-6"></div>
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                Shipyon is a premier agricultural export company dedicated to connecting South India's finest produce with global markets. We specialize in sourcing high-quality agricultural products and building sustainable supply chains that benefit both farmers and international buyers.
+               Shipyon is a modern sourcing and trade company serving both domestic and international markets. We prioritize quality, transparency, and dependable supply chains.
               </p>
               <p className="text-lg text-gray-700 mb-8 leading-relaxed">
                 Our commitment to excellence ensures that every product meets the highest standards of quality and freshness. From farm to table, we maintain strict quality control measures and work closely with local farming communities to promote sustainable agricultural practices.
@@ -96,19 +96,20 @@ export default function About({ header }) {
                   <div className="w-12 h-12 bg-primary-dark-green rounded-full flex items-center justify-center mr-3 icon-circle">
                     <CheckCircle className="w-6 h-6 text-white" />
                   </div>
-                  <span className="text-gray-700 font-medium">Quality Assured</span>
+                  <span className="text-gray-700 font-medium">Trusted Supplier Network</span>
                 </div>
+
                 <div className="flex items-center feature-item">
                   <div className="w-12 h-12 bg-primary-dark-green rounded-full flex items-center justify-center mr-3 icon-circle">
                     <Globe className="w-6 h-6 text-white" />
                   </div>
-                  <span className="text-gray-700 font-medium">Global Reach</span>
+                  <span className="text-gray-700 font-medium">Domestic & Global Trade</span>
                 </div>
                 <div className="flex items-center feature-item">
                   <div className="w-12 h-12 bg-primary-dark-green rounded-full flex items-center justify-center mr-3 icon-circle">
                     <Leaf className="w-6 h-6 text-white" />
                   </div>
-                  <span className="text-gray-700 font-medium">Sustainable</span>
+                  <span className="text-gray-700 font-medium">Quality-Driven Operations</span>
                 </div>
               </div>
             </div>

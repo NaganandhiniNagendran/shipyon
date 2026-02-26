@@ -1,3 +1,5 @@
+/* Category Page Specific Styles */
+
 .category-page {
   background-color: #f9fafb;
 }
@@ -62,20 +64,75 @@
   line-height: 1.75;
 }
 
+/* Section Styles with spacing */
+.produce-section,
+.additional-produce-section,
+.coconut-produce-section {
+  padding: 4rem 0;
+  position: relative;
+}
+
 .produce-section {
-  padding: 8rem 0;
-  background-color: #f3f4f6;
+  background: #ffffff;
+}
+
+.produce-section::after {
+  content: '';
+  display: block;
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #e5e7eb, transparent);
+  margin: 4rem auto 0;
+}
+
+.additional-produce-section {
+  margin-top: 2rem;
+  background-color: #ffffff;
+}
+
+.additional-produce-section::after {
+  content: '';
+  display: block;
+  width: 80%;
+  height: 1px;
+  
+  margin: 4rem auto 0;
+}
+
+.coconut-produce-section {
+  background: #ffffff;
+  margin-top: 2rem;
+  padding-bottom: 10rem; /* Increased space before footer to prevent overlap */
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1f2937;
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  font-size: 1.125rem;
+  color: #6b7280;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 .produce-container {
-  max-width: 70rem;
+  max-width: 1200px; /* Increased to remove empty space */
   margin: 0 auto;
-  padding: 0 1rem 0 1rem;
+  padding: 0 1rem; /* Reduced padding for more width utilization */
 }
 
 .produce-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Increased card size */
   gap: 2rem;
 }
 
@@ -94,27 +151,29 @@
 }
 
 .produce-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px); /* Updated hover effect */
 }
 
 .produce-card-container {
   background-color: white;
-  border-radius: 1rem;
+  border-radius: 0.75rem; /* Updated border radius */
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   cursor: pointer;
   overflow: hidden;
   padding: 0;
+  border: 1px solid #e5e7eb;
 }
 
 .produce-card:hover .produce-card-container {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  border-color: #16a34a;
 }
 
 .produce-image-wrapper {
   position: relative;
   width: 100%;
-  height: 250px;
+  height: 200px; /* Updated image height */
   overflow: hidden;
 }
 
@@ -130,55 +189,64 @@
 }
 
 .produce-card-content {
-  padding: 1.5rem;
+  padding: 1.25rem; /* Updated padding */
+  display: flex;
+  flex-direction: column;
+  flex: 1;
 }
 
 .produce-card-title {
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.125rem; /* Updated font size */
+  font-weight: 600;
   color: #1f2937;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem; /* Updated margin */
   text-align: left;
 }
 
 .produce-card-description {
-  font-size: 0.95rem;
+  font-size: 0.8rem; /* Updated font size */
   color: #6b7280;
-  line-height: 1.6;
-  margin-bottom: 1rem;
+  line-height: 1.5; /* Updated line height */
+  margin-bottom: 0.75rem; /* Updated margin */
   text-align: left;
+  flex: 1;
 }
 
 .produce-source-info {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem; /* Updated margin */
 }
 
 .location-icon {
-  color: #3b82f6;
+  color: #16a34a; /* Updated to green theme */
   flex-shrink: 0;
+  width: 14px;
+  height: 14px;
 }
 
 .source-text {
-  font-size: 0.875rem;
+  font-size: 0.8rem; /* Updated font size */
   color: #6b7280;
+  font-weight: 500;
 }
 
 .enquire-button {
   width: 100%;
-  background-color: #3b82f6;
+  background: linear-gradient(135deg, #16a34a, #22c55e); /* Updated to green gradient */
   color: white;
   border: none;
   border-radius: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
+  padding: 0.625rem 1.25rem; /* Updated padding */
+  font-size: 0.9rem; /* Updated font size */
   font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .enquire-button:hover {
-  background-color: #2563eb;
+  background: linear-gradient(135deg, #15803d, #16a34a);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(34, 199, 94, 0.3);
 }

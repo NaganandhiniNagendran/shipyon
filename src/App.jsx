@@ -6,6 +6,9 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Products from './pages/Products';
 import Category from './pages/Category';
+import Fruits from './pages/Fruits';
+import Processed from './pages/Processed';
+import Commercial from './pages/Commercial';
 import Contact from './pages/Contact';
 
 function App() {
@@ -29,6 +32,14 @@ function App() {
         return <Products header={headerComponent} onNavigate={handleNavigate} />;
       case 'category':
         return <Category header={headerComponent} onNavigate={handleNavigate} />;
+      case 'spices':
+        return <Category header={headerComponent} onNavigate={handleNavigate} spicesOnly={true} />;
+      case 'fruits':
+        return <Fruits header={headerComponent} onNavigate={handleNavigate} />;
+      case 'processed':
+        return <Processed header={headerComponent} onNavigate={handleNavigate} />;
+      case 'commercial':
+        return <Commercial header={headerComponent} onNavigate={handleNavigate} />;
       case 'contact':
         return <Contact header={headerComponent} onNavigate={handleNavigate} />;
       default:
