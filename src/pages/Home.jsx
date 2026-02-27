@@ -54,7 +54,12 @@ export default function Home({ header, onNavigate }) {
             </p>
             <div className="flex flex-col sm-flex-row gap-4 justify-center hero-buttons">
               <button
-                onClick={() => onNavigate('products')}
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  console.log('Explore Products clicked - redirecting to Contact');
+                  onNavigate('contact');
+                }}
                 className="bg-secondary-gold hover-bg-gold-dark text-text-dark font-semibold py-3 px-8 rounded-lg transition-colors flex items-center justify-center primary-button"
               >
                 Explore Products
@@ -79,20 +84,6 @@ export default function Home({ header, onNavigate }) {
 
       {/* Why Choose Us */}
       <WhyChooseUs />
-
-      {/* Stats */}
-      <section className="py-16 bg-primary-dark-green text-white stats-section">
-        <div className="max-w-7xl mx-auto px-4 sm-px-6 lg-px-8">
-          <div className="grid grid-cols-2 md-grid-cols-4 gap-8 stats-grid">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center stat-item">
-                <div className="text-3xl md-text-4xl font-bold mb-2">{stat.value}</div>
-                <div className="text-gray-200">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* How We Work */}
       <HowWeWork />

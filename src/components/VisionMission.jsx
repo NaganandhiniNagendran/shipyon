@@ -5,6 +5,14 @@ import '../styles/VisionMission.css';
 const VisionMission = () => {
   return (
     <section className="vision-mission-section">
+      {/* Section Title */}
+      <div className="section-header text-center mb-12">
+        <h2 className="text-3xl font-bold text-text-dark mb-4 title-hover">Vision & Mission</h2>
+        <p className="text-gray-600 max-w-2xl mx-auto">
+          Our guiding principles and commitment to excellence in agricultural trade
+        </p>
+      </div>
+      
       <div className="vision-mission-container">
         {/* Top Row - Vision and Mission side by side */}
         <div className="top-row">
@@ -31,28 +39,6 @@ const VisionMission = () => {
             </div>
             <p className="card-content">
              To efficiently source quality products from India, elevate Indian offerings in domestic and global markets, introduce high-potential international products into India, and build a trusted, scalable supply chain that empowers businesses to grow beyond borders.
-            </p>
-          </div>
-        </div>
-
-        {/* Bottom Row - Who We Are centered */}
-        <div className="bottom-row">
-          {/* Who We Are Card */}
-          <div className="who-we-are-card" style={{ maxWidth: '800px' }} tabIndex="0" role="button" aria-label="Who We Are card">
-            <div className="card-header">
-              <div className="icon-wrapper who-we-are-icon">
-                <Users className="header-icon" />
-              </div>
-              <h2 className="card-title">Who We Are</h2>
-            </div>
-            <p className="card-content">
-              Praskla Technology is a dynamic and forward-thinking IT solutions company
-              committed to delivering cutting-edge software solutions, digital marketing
-              services, and IT security expertise. We specialize in helping businesses enhance
-              their digital presence and operational efficiency through innovative technology
-              and strategic marketing. Our team is dedicated to providing high-quality,
-              reliable, and scalable solutions tailored to meet the evolving needs of modern
-              enterprises.
             </p>
           </div>
         </div>

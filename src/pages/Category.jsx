@@ -26,7 +26,7 @@ export default function Category({ header, onNavigate, spicesOnly = false }) {
     {
       name: 'Elephant Foot Yam',
       image: '/yan.png',
-      description: 'Nutrient-rich yams with excellent texture and flavor. Perfect for both traditional and modern culinary applications.',
+      description: 'Nutrient-rich yams with excellent texture and flavor. Perfect for both traditional culinary applications.',
       source: ' Salem, Villupuram (TN)'
     },
     {

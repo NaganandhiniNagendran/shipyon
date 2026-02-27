@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import '../styles/Services.css';
 import '../styles/Milestone.css';
 import '../styles/ServicesHowWeWork.css';
+import '../styles/GetInTouchButton.css';
 
 export default function Services({ header, onNavigate }) {
 
@@ -520,12 +521,14 @@ export default function Services({ header, onNavigate }) {
           {/* Call to Action under Why Shipyon */}
           <div className="text-center mt-12 mb-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-4 title-hover">Let's Build Your Supply Chain Together</h3>
-            <button 
-              onClick={() => onNavigate('contact')}
-              className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors border-2 border-green-500 shadow-lg hover:shadow-xl"
-            >
-              Get in Touch
-            </button>
+            <div className="mt-6">
+              <button 
+                onClick={() => onNavigate('contact')}
+                className="get-in-touch-button"
+              >
+                Get in Touch
+              </button>
+            </div>
           </div>
           
           {/* Horizontal Line below Milestone Section */}

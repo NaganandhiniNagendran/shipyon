@@ -1,11 +1,40 @@
-import { ShoppingCart, ChevronDown, ChevronUp } from 'lucide-react';
+import { useState, useRef } from 'react';
+import { ShoppingCart, Package, Apple, Factory, Truck, X, Play, Pause } from 'lucide-react';
 import TestimonialSlider from '../components/TestimonialSlider';
 import '../styles/TestimonialSlider.css';
-import { useState } from 'react';
+import '../styles/OrderButton.css';
+import '../styles/FeatureImages.css';
 
 export default function Products({ header, onNavigate }) {
+  const [showCategoryPopup, setShowCategoryPopup] = useState(false);
+  const [videoStates, setVideoStates] = useState({
+    export: { isPlaying: true },
+    bulkOrder: { isPlaying: true }
+  });
 
-  const [showCategories, setShowCategories] = useState(false);
+  const exportVideoRef = useRef(null);
+  const bulkOrderVideoRef = useRef(null);
+
+  const toggleVideo = (videoName) => {
+    const videoRef = videoName === 'export' ? exportVideoRef : bulkOrderVideoRef;
+    const video = videoRef.current;
+
+    if (video) {
+      if (video.paused) {
+        video.play();
+        setVideoStates(prev => ({
+          ...prev,
+          [videoName]: { isPlaying: true }
+        }));
+      } else {
+        video.pause();
+        setVideoStates(prev => ({
+          ...prev,
+          [videoName]: { isPlaying: false }
+        }));
+      }
+    }
+  };
 
   const products = [
     { name: 'Fresh Produce', image: '/veg.png', description: 'Farm-fresh vegetables sourced directly from trusted local growers.' },
@@ -93,75 +122,139 @@ export default function Products({ header, onNavigate }) {
         </div>
       </section>
 
-      {/* Product Categories Section */}
-      <section className="py-12 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm-px-6 lg-px-8">
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-green-600 mb-4">Product Categories</h2>
-            <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-              We source based on your exact requirement across categories.
-            </p>
-            <button
-              onClick={() => setShowCategories(!showCategories)}
-              className="bg-green-600 hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors duration-200 flex items-center gap-2 mx-auto"
-            >
-              Start Your Order
-              {showCategories ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
-            </button>
-            
-            {showCategories && (
-              <div className="mt-8 max-w-3xl mx-auto">
-                <div className="bg-white border border-gray-200 rounded-lg shadow-lg p-6">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-4">Product Categories</h3>
-                  <div className="space-y-3">
-                    {products.map((product, index) => (
-                      <div 
-                        key={index}
-                        className="group flex items-center justify-between p-4 border border-gray-100 rounded-lg hover:bg-gradient-to-r hover:from-green-50 hover:to-emerald-50 hover:border-green-400 hover:shadow-md hover:scale-[1.02] transition-all duration-200 cursor-pointer"
-                        onClick={() => {
-                          if (product.name === 'Fresh Produce') {
-                            onNavigate('category');
-                          } else if (product.name === 'Spices & Plantation Crops') {
-                            onNavigate('spices');
-                          } else if (product.name === 'Fruits') {
-                            onNavigate('fruits');
-                          } else if (product.name === 'Processed & Value-Added') {
-                            onNavigate('processed');
-                          } else if (product.name === 'Industrial & Commercial Products') {
-                            onNavigate('commercial');
-                          }
-                        }}
-                      >
-                        <div className="flex items-center gap-3">
-                          <div className="w-2 h-2 bg-gray-300 rounded-full group-hover:bg-green-500 group-hover:scale-150 transition-all duration-200"></div>
-                          <div>
-                            <div className="font-medium text-gray-900 group-hover:text-green-700 transition-colors duration-200">{product.name}</div>
-                            <div className="text-sm text-gray-600 group-hover:text-gray-700 transition-colors duration-200">{product.description}</div>
-                          </div>
-                        </div>
-                        <ChevronDown className="w-4 h-4 text-gray-400 group-hover:text-green-600 group-hover:translate-x-1 transition-all duration-200 -rotate-90" />
-                      </div>
-                    ))}
-                  </div>
-                </div>
+      {/* Feature Videos Section */}
+      <section className="feature-videos-section">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="feature-videos-grid">
+            <div className="feature-video-container">
+              <div className="relative">
+                <video
+                  ref={exportVideoRef}
+                  src="/export.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="feature-video"
+                />
+                <button 
+                  onClick={() => toggleVideo('export')}
+                  className="video-play-button"
+                >
+                  {videoStates.export.isPlaying ? (
+                    <Pause className="w-6 h-6" />
+                  ) : (
+                    <Play className="w-6 h-6" />
+                  )}
+                </button>
               </div>
-            )}
+              <h3 className="feature-video-title">Export Grade</h3>
+            </div>
+            <div className="feature-video-container">
+              <div className="relative">
+                <video
+                  ref={bulkOrderVideoRef}
+                  src="/bulk order.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="feature-video"
+                />
+                <button 
+                  onClick={() => toggleVideo('bulkOrder')}
+                  className="video-play-button"
+                >
+                  {videoStates.bulkOrder.isPlaying ? (
+                    <Pause className="w-6 h-6" />
+                  ) : (
+                    <Play className="w-6 h-6" />
+                  )}
+                </button>
+              </div>
+              <h3 className="feature-video-title">Bulk Order</h3>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="py-16 bg-white testimonials-section">
-        <div className="max-w-7xl mx-auto px-4 sm-px-6 lg-px-8">
-          <div className="text-center mb-12 section-header">
-            <h2 className="text-3xl font-bold text-text-dark mb-4 title-hover">What Our Clients Say</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Trusted by importers and distributors across the globe
-            </p>
+      {/* Product Categories CTA Section */}
+      <section className="py-16 bg-gradient-to-r from-green-50 to-emerald-50">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold text-green-600 mb-6">Product Categories</h2>
+          <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+            We source based on your exact requirement across categories.
+          </p>
+          <div className="inline-block">
+            <button 
+              onClick={() => setShowCategoryPopup(true)}
+              className="order-button"
+            >
+              <span className="order-button-content">
+                <svg className="order-button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                </svg>
+                <span>Start Your Order</span>
+              </span>
+            </button>
           </div>
-          <TestimonialSlider testimonials={testimonials} />
         </div>
       </section>
+
+      {/* Category Popup Modal */}
+      {showCategoryPopup && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4"
+          onClick={() => setShowCategoryPopup(false)}
+        >
+          <div 
+            className="bg-white rounded-xl max-w-4xl w-full max-h-[80vh] overflow-y-auto shadow-2xl"
+            onClick={(e) => {
+              e.stopPropagation();
+              // Prevent closing when clicking inside the popup container
+            }}
+          >
+            <div className="sticky top-0 bg-white border-b border-gray-200 p-6">
+              <h3 className="text-2xl font-bold text-gray-800">Select Product Category</h3>
+            </div>
+            <div className="p-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {products.map((product, index) => (
+                  <div
+                    key={index}
+                    onClick={() => {
+                      if (product.name === 'Fresh Produce') {
+                        onNavigate('category');
+                      } else if (product.name === 'Spices & Plantation Crops') {
+                        onNavigate('spices');
+                      } else if (product.name === 'Fruits') {
+                        onNavigate('fruits');
+                      } else if (product.name === 'Processed & Value-Added') {
+                        onNavigate('processed');
+                      } else if (product.name === 'Industrial & Commercial Products') {
+                        onNavigate('commercial');
+                      }
+                      setShowCategoryPopup(false);
+                    }}
+                    className="bg-gray-50 rounded-lg p-4 cursor-pointer hover:bg-green-50 hover:shadow-md transition-all duration-200 border border-gray-200 hover:border-green-300"
+                  >
+                    <div className="flex items-center space-x-3">
+                      <img
+                        src={product.image}
+                        alt={product.name}
+                        className="w-16 h-16 object-cover rounded-lg"
+                      />
+                      <div>
+                        <h4 className="font-semibold text-gray-800">{product.name}</h4>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
